@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCart should show the component well mounted 1`] = `
+<div
+  className="productCard custom-class"
+>
+  <h1>
+    Product Cart
+  </h1>
+</div>
+`;
+
+exports[`ProductCart the counter should work 1`] = `
+<div
+  className="productCard custom-class"
+>
+  <h1>
+    Product Card
+  </h1>
+  <span>
+    0
+  </span>
+  <button
+    onClick={[Function]}
+  >
+    +3
+  </button>
+</div>
+`;

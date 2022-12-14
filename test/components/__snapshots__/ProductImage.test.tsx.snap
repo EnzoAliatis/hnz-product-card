@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Image should render well with image 1`] = `
+<div
+  className="productCard undefined"
+>
+  <img
+    alt="Product"
+    className="productImg undefined"
+    src="./coffee-mug2.png"
+  />
+</div>
+`;
+
+exports[`Product Image should render well with no image 1`] = `
+<img
+  alt="Product"
+  className="productImg custom-class"
+  src="https://theimage.jpg"
+/>
+`;
+
+exports[`ProductImage should render well with image 1`] = `
+<div
+  className="productCard undefined"
+>
+  <img
+    alt="Product"
+    className="productImg undefined"
+    src="./coffee-mug2.png"
+  />
+</div>
+`;
+
+exports[`ProductImage should render well with no image 1`] = `
+<img
+  alt="Product"
+  className="productImg custom-class"
+  src="https://theimage.jpg"
+/>
+`;

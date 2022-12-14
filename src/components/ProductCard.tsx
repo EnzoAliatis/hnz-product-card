@@ -40,7 +40,7 @@ export const ProductCard = ({
         {children({
           count: counter,
           isMaxCountReached,
-          maxCount: initialValues.maxCount,
+          maxCount: initialValues?.maxCount,
           increaseBy,
           product,
           reset,
