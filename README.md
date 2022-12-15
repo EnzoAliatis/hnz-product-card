@@ -7,7 +7,7 @@ This is a test package to do release on NPM
 #### Example
 
 ```js
-import { ProductCard } from 'hnz-product-cart';
+import { ProductCard } from 'hnz-product-card';
 ```
 
 ```js
