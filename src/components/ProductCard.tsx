@@ -18,9 +18,15 @@ export const ProductCard = ({
   style,
   onChange,
   value,
-  initialValues
+  initialValues,
 }: ProductCardProps) => {
-  const { counter, increaseBy, maxCount, isMaxCountReached, reset } = useProduct({
+  const {
+    counter,
+    increaseBy,
+    maxCount,
+    isMaxCountReached,
+    reset,
+  } = useProduct({
     onChange,
     product,
     value,

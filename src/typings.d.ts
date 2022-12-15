@@ -3,7 +3,7 @@ declare module '*.css' {
   export default content;
 }
 
-declare module "*.jpg" {
+declare module '*.jpg' {
   const value: any;
   export default value;
 }

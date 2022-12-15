@@ -6,15 +6,10 @@ import { product } from '../data/products';
 const { act } = renderer;
 
 describe('ProductCart', () => {
-
   test('should show the component well mounted', () => {
     const wrapper = renderer.create(
-      <ProductCard product={product} className='custom-class'>
-        {
-          () => (
-            <h1>Product Cart</h1>
-          )
-        }
+      <ProductCard product={product} className="custom-class">
+        {() => <h1>Product Cart</h1>}
       </ProductCard>
     );
 
@@ -22,18 +17,15 @@ describe('ProductCart', () => {
   });
 
   test('the counter should work', () => {
-
     const wrapper = renderer.create(
-      <ProductCard product={product} className='custom-class'>
-        {
-          ({ count, increaseBy}) => (
-            <>
-              <h1>Product Card</h1>
-              <span>{count}</span>
-              <button onClick={() => increaseBy(3)}>+3</button>
-            </>
-          )
-        }
+      <ProductCard product={product} className="custom-class">
+        {({ count, increaseBy }) => (
+          <>
+            <h1>Product Card</h1>
+            <span>{count}</span>
+            <button onClick={() => increaseBy(3)}>+3</button>
+          </>
+        )}
       </ProductCard>
     );
 
@@ -43,12 +35,10 @@ describe('ProductCart', () => {
 
     act(() => {
       (tree as any).children[2].props.onClick();
-    })
-
+    });
 
     tree = wrapper.toJSON();
 
     expect((tree as any).children[1].children[0]).toBe('3');
-
   });
-})
+});

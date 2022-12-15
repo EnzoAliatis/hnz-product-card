@@ -1,47 +1,49 @@
 import { useEffect, useState, useRef } from 'react';
 import { useProductArgs } from '../interfaces/interfaces';
 
+export const useProduct = ({
+  onChange,
+  product,
+  value = 0,
+  initialValues,
+}: useProductArgs) => {
+  const [counter, setCounter] = useState<number>(initialValues?.count || value);
+  const isMounted = useRef(false);
 
-export const useProduct = ({ onChange, product, value = 0, initialValues }: useProductArgs) => {
+  const increaseBy = (value: number) => {
+    const newValue = Math.min(
+      Math.max(counter + value, 0),
+      initialValues?.maxCount ?? Infinity
+    );
 
-    const [counter, setCounter] = useState<number>(initialValues?.count || value);
-    const isMounted = useRef(false);
+    setCounter(newValue);
 
-    const increaseBy = (value: number) => {
-        const newValue = Math.min(Math.max(counter + value, 0), initialValues?.maxCount ?? Infinity)
+    onChange &&
+      onChange({
+        product,
+        count: newValue,
+      });
+  };
 
-        setCounter(newValue);
+  const reset = () => {
+    setCounter(initialValues?.count ?? 0);
+  };
 
-        onChange && onChange({
-            product,
-            count: newValue
-        })
-    }
+  useEffect(() => {
+    if (!isMounted.current) return;
+    setCounter(value);
+  }, [value]);
 
-    const reset = () => {
-        setCounter(initialValues?.count ?? 0);
-    }
+  useEffect(() => {
+    isMounted.current = true;
+  }, []);
 
-
-
-
-    useEffect(() => {
-        if (!isMounted.current) return;
-        setCounter(value);
-    }, [value]);
-
-    useEffect(() => {
-        isMounted.current = true;
-    }, [])
-
-
-
-    return {
-        counter,
-        increaseBy,
-        isMaxCountReached: !!initialValues?.count && initialValues?.maxCount === counter,
-        maxCount: initialValues?.maxCount,
-        reset,
-    }
-
-}
+  return {
+    counter,
+    increaseBy,
+    isMaxCountReached:
+      !!initialValues?.count && initialValues?.maxCount === counter,
+    maxCount: initialValues?.maxCount,
+    reset,
+  };
+};
